@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LTUDDD_TLU"
         tools:targetApi="31">
-
         <activity
-            android:name=".tuan2.tuan22_KL.tuan22Main3Activity"
+            android:name=".tuan3.tuan31_KL.tuan31SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tuan3.tuan31_KL.tuan31Main1Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,29 +24,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
-            android:name=".tuan2.tuan22_java.tuan22MainActivity"
+            android:name=".tuan3.tuan31_KL.tuan31Main2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".tuan3.tuan31_KL.tuan31MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_tuan31_main"
+            android:theme="@style/Theme.LTUDDD_TLU" />
+        <activity
+            android:name=".tuan3.tuan31_Java.tuan31SecondActivity"
+            android:exported="true" />
+        <activity
+            android:name=".tuan3.tuan31_Java.tuan31MainActivity"
             android:exported="true">
 
         </activity>
-
-
+        <activity
+            android:name=".tuan2.tuan22_KL.tuan22Main3Activity"
+            android:exported="true" />
+        <activity
+            android:name=".tuan2.tuan22_java.tuan22MainActivity"
+            android:exported="true" />
         <activity
             android:name=".tuan2.tuan22_KL.tuan22SecondActivity"
             android:exported="false"
             android:label="@string/title_activity_tuan22_second"
             android:theme="@style/Theme.LTUDDD_TLU" />
-
-
         <activity
             android:name=".tuan2.tuan22_KL.tuan22MainActivity"
-            android:exported="true">
-
-        </activity>
-
-
+            android:exported="true" />
         <activity
             android:name=".tuan2.tuan22_java.tuan21SecondActivity"
             android:exported="false"
@@ -52,11 +61,7 @@
             android:theme="@style/Theme.LTUDDD_TLU" />
         <activity
             android:name=".tuan2.tuan22_java.tuan21MainActivity"
-            android:exported="true">
-
-        </activity>
-
-
+            android:exported="true" />
         <activity
             android:name=".tuan1.tuan11MainActivityKL"
             android:exported="true" />
