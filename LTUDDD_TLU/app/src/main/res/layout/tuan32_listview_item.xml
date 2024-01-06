@@ -18,7 +18,10 @@
             android:id="@+id/T32ItemTen"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Ten" />
+            android:text="Ten"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            />
 
         <TextView
             android:id="@+id/T32ItemTuoi"
