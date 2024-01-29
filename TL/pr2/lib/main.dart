@@ -25,6 +25,8 @@ class ProductListScreen extends StatefulWidget{
 
 class _ProductListScreenState extends State<ProductListScreen> {
   late List<Product> products;
+  //khoi tao gio hang
+  final Cart cart = Cart();
   @override
   void initState() {
     // TODO: implement initState
@@ -70,7 +72,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Danh sach san pham"),
+        title: Text("Danh sách sản phẩm"),
         backgroundColor: Colors.red,
       ),
       body: products != null ?
@@ -92,12 +94,139 @@ class _ProductListScreenState extends State<ProductListScreen> {
                 height: 50,
                 fit: BoxFit.cover,
               ),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=> ProducDetailScreen(products[index], cart)));
+              },
             );
           })
       : Center(
         child: CircularProgressIndicator(),
       ),
     );
+  }
+}
+
+//dinh nghia lop chi tiet san pham
+class ProducDetailScreen extends StatelessWidget{
+  final Product product;
+  final Cart cart;
+  ProducDetailScreen(this.product, this.cart);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Product Detail'),
+        actions: [
+          ElevatedButton(onPressed: (){
+            cart.addToCart(product);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Sản phẩm đã được thêm và giỏ hàng'),
+              ),
+            );
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context)=> CarScreen(cart)),);
+          },
+          child: Icon(Icons.shopping_cart),
+          style: ElevatedButton.styleFrom(
+            shape: CircleBorder(),
+            padding: EdgeInsets.all(0)
+          ),
+          ),
+        ],
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(padding: const EdgeInsets.all(8),
+          child: Text('Name: ${product.brands_filter_facet}'),
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: Image.network(
+              product.search_image,
+              height: 400,
+              width: 400,
+            ),
+          ),
+          Padding(padding: const EdgeInsets.all(8),
+            child: Text('Info: ${product.product_additional_info}',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(padding: const EdgeInsets.all(8),
+          child: Text('ID: ${product.styleid}'),
+          ),
+          Padding(padding: const EdgeInsets.all(8),
+          child: Text('Price: ${product.price}'),
+          )
+        ],
+      ),
+
+      // body: Row(
+      //   crossAxisAlignment: CrossAxisAlignment.start,
+      //   children: [
+      //
+      //     Expanded(
+      //       child: Padding(
+      //         padding: const EdgeInsets.all(8),
+      //         child: Column(
+      //           crossAxisAlignment: CrossAxisAlignment.start,
+      //           children: [
+      //             Text('Name: ${product.brands_filter_facet}'),
+      //             Text(
+      //               'Info: ${product.product_additional_info}',
+      //               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      //             ),
+      //             Text('ID: ${product.styleid}'),
+      //             Text('Price: ${product.price}'),
+      //           ],
+      //         ),
+      //       ),
+      //     ),
+      //
+      //     SizedBox(
+      //       width: 400,
+      //       child: Image.network(
+      //         product.search_image,
+      //         height: 400,
+      //         width: 400,
+      //       ),
+      //     ),
+      //   ],
+      // ),
+
+    );
+  }
+
+}
+
+class CarScreen extends StatelessWidget{
+  final Cart cart;
+  CarScreen(this.cart);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Shopping Cart"),),
+      body: ListView.builder(
+          itemCount: cart.item.length,
+          itemBuilder: (context, index){
+            return ListTile(
+              title: Text(cart.item[index].search_image),
+              subtitle: Text(cart.item[index].price),
+            );
+          }),
+    );
+  }
+
+}
+
+//xu ly gio hang
+class Cart{
+  List<Product> item = [];
+  void addToCart(Product p){
+    item.add(p);
   }
 }
 
