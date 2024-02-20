@@ -19,56 +19,56 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-private RecyclerView.Adapter adapter, adapter2;
-private RecyclerView recyclerViewCategotyList, recyclerViewPupolarList;
+    private RecyclerView.Adapter adapter, adapter2;
+    private RecyclerView recyclerViewCategoryList, recyclerViewPopularList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerViewCategotyList();
-        recyclerViewPupolarList();
+        recyclerViewCategoryList();
+        recyclerViewPopularList();
         bottomNavigation();
 
     }
 
     private void bottomNavigation() {
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
-        FloatingActionButton cartBtn = findViewById(R.id.cartBtn);
+        LinearLayout cartBtn = findViewById(R.id.cartBtn);
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MainActivity.class));
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
             }
         });
         cartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,CartActivity.class));
+                startActivity(new Intent(MainActivity.this, CartActivity.class));
             }
         });
     }
 
-    private void recyclerViewPupolarList() {
+    private void recyclerViewPopularList() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewPupolarList = findViewById(R.id.view2);
-        recyclerViewPupolarList.setLayoutManager(linearLayoutManager);
+        recyclerViewPopularList = findViewById(R.id.view2);
+        recyclerViewPopularList.setLayoutManager(linearLayoutManager);
 
-        ArrayList<FoodDomain> foodlist = new ArrayList<>();
-        foodlist.add(new FoodDomain("Pepperoni pizza", "pizza1", "slices peperoni, mozzarella cheese, fresh oregano,ground black pepper, pizza sauce", 13.0, 5, 20, 1000 ));
-        foodlist.add(new FoodDomain("Cheese Burger", "burger", "beef, Gouda Cheese, Speccial, Lettuce, tomato", 15.20, 4, 10, 1100 ));
-        foodlist.add(new FoodDomain("Vagetable pizza", "pizza3", "olve oil, Vegetablep oil, pitted Lalamata, cherry tomatoes, fresh oregano, basil", 14.0, 3, 16, 1200 ));
+        ArrayList<FoodDomain> foodList = new ArrayList<>();
+        foodList.add(new FoodDomain("Bánh mỳ kẹp thịt", "banhmi", "Chiếc bánh mỳ nóng hổi, lớp vỏ bên ngoài giòn tan khiến bạn không thể chờ đợi để cắn vào. Ruột bánh mềm mịn và đỉnh của sự hòa quyện này là lớp thịt nướng đậm đà, thơm phức. Đó chính là hương vị của sự hài hòa, kết hợp, tạo nên một trải nghiệm ẩm thực độc đáo.", 20.000, 5, 15, 500));
+        foodList.add(new FoodDomain("Phở bò", "pho", "Phở là một món ăn truyền thống của Việt Nam. Nước của phở bò được nấu bằng xương bò trong nhiều giờ, nước dùng trong và ngọt. Bánh dẻo mà không nát, gia vị của phở là hành lá, hạt tiêu, giấm ớt, lát chanh thái cùng với đó là những miếng thịt bò. ", 15.20, 4, 10, 483));
+        foodList.add(new FoodDomain("Bún đậu mắm tôm", "bun_dau_mam_tom", "Bún đậu mắm tôm gồm có bún tươi, đậu hũ chiên vàng, chả cốm, thịt luộc, nem chua,dồi chó, mắm tôm pha chanh, ớt và ăn kèm với các loại rau thơm như tía tô, kinh giới, rau húng, xà lách. Chỉ cần thưởng thức một phần bún như vậy, đây sẽ là một bữa ăn ngon, rẻ và trọn vẹn", 14.0, 3, 16, 465));
 
-        adapter2 = new RecommendedAdapter(foodlist);
-        recyclerViewPupolarList.setAdapter(adapter2);
+        adapter2 = new RecommendedAdapter(foodList);
+        recyclerViewPopularList.setAdapter(adapter2);
     }
 
-    private void recyclerViewCategotyList() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false );
-        recyclerViewCategotyList = findViewById(R.id.view1);
-        recyclerViewCategotyList.setLayoutManager(linearLayoutManager);
+    private void recyclerViewCategoryList() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewCategoryList = findViewById(R.id.view1);
+        recyclerViewCategoryList.setLayoutManager(linearLayoutManager);
 
         ArrayList<CategoryDomain> categoryList = new ArrayList<>();
         categoryList.add(new CategoryDomain("Pizza", "cat_1"));
@@ -78,6 +78,6 @@ private RecyclerView recyclerViewCategotyList, recyclerViewPupolarList;
         categoryList.add(new CategoryDomain("Donut", "cat_5"));
 
         adapter = new CategoryAdapter(categoryList);
-        recyclerViewCategotyList.setAdapter(adapter);
+        recyclerViewCategoryList.setAdapter(adapter);
     }
 }

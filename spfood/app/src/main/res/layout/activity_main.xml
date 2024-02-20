@@ -2,24 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#ECEBE6"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".Activity.MainActivity">
 
     <ScrollView
         android:id="@+id/scrollview"
-        android:layout_width="415dp"
-        android:layout_height="848dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +32,7 @@
                     android:id="@+id/textView21"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
+                    android:layout_marginEnd="06dp"
                     android:text="Xem thêm"
                     android:textColor="#FF3D00"
                     app:layout_constraintBottom_toBottomOf="@+id/textView13"
@@ -70,7 +72,8 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="20dp"
                     android:text="Món ngon nổi bật"
                     android:textColor="#000000"
                     android:textSize="18sp"
@@ -91,8 +94,8 @@
 
                     <ImageView
                         android:id="@+id/imageView7"
-                        android:layout_width="370dp"
-                        android:layout_height="159dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@drawable/banner"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,9 +162,11 @@
 
                 <EditText
                     android:id="@+id/editTextText8"
-                    android:layout_width="371dp"
+                    android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:layout_marginTop="4dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/search_edt_background"
                     android:drawableStart="@drawable/search"
                     android:drawablePadding="10dp"
@@ -182,12 +187,13 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
                     android:text="Danh mục món ngon mời bạn chọn"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/editTextText8"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -213,15 +219,16 @@
     </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/app_bar"
-            android:layout_width="410dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:backgroundTint="#f6f6f6"
@@ -231,7 +238,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="16dp">
 
                 <LinearLayout
                     android:id="@+id/homeBtn"
@@ -286,27 +295,27 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn"
+                    android:id="@+id/cartBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <ImageView
-                        android:id="@+id/imageView13"
+                        android:id="@+id/cartBtn1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/btn1" />
+                        android:src="@drawable/bottom_btn5" />
 
                     <TextView
-                        android:id="@+id/textView17"
+                        android:id="@+id/cartTxt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Home"
+                        android:text="Cart"
                         android:textAlignment="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
@@ -366,17 +375,6 @@
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/cartBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#ff5e00"
-            android:elevation="3dp"
-            android:src="@drawable/cart_white"
-            app:backgroundTint="#ff5e00"
-            app:layout_anchor="@id/app_bar">
-
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,6 @@ import com.bumptech.glide.Glide;
 import com.example.spfood.Domain.CategoryDomain;
 import com.example.spfood.R;
 
-import java.time.Instant;
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
@@ -83,7 +82,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             categoryName=itemView.findViewById(R.id.categoryName);
-            categoryPic=itemView.findViewById(R.id.categotyPic);
+            categoryPic=itemView.findViewById(R.id.categoryPic);
             mainLayout=itemView.findViewById(R.id.mainLayout);
         }
     }

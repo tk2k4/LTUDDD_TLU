@@ -13,23 +13,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <ImageView
                 android:id="@+id/foodPic"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="24dp"
+                android:layout_margin="32dp"
                 app:srcCompat="@drawable/burger_large" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/background_white"
                 android:orientation="vertical">
 
@@ -46,7 +47,7 @@
                     android:textStyle="bold" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="200dp"
+                    android:layout_width="220dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="8dp"
@@ -54,12 +55,11 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout4"
-                        android:layout_width="140dp"
-                        android:layout_height="40dp"
+                        android:layout_width="133dp"
+                        android:layout_height="39dp"
                         android:background="@drawable/yellow_bar"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/titleTxt">
+                        app:layout_constraintEnd_toEndOf="parent">
 
                         <ImageView
                             android:id="@+id/plusCartBtn"
@@ -67,6 +67,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="4dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
@@ -79,6 +80,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="4dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
                             app:layout_constraintStart_toStartOf="parent"
@@ -106,12 +108,13 @@
 
                             <TextView
                                 android:id="@+id/numberItemTxt"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="10dp"
+                                android:layout_height="18dp"
                                 android:text="1"
                                 android:textColor="#373b54"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
+                                android:layout_marginBottom="7dp"
                                 app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                                 app:layout_constraintEnd_toEndOf="@+id/imageView6"
                                 app:layout_constraintStart_toStartOf="@+id/imageView6"
@@ -124,7 +127,7 @@
                         android:id="@+id/priceTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0$"
+                        android:text="$0"
                         android:textColor="#000000"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -144,8 +147,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="0.333"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="0.3"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -161,10 +164,9 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:paddingStart="8dp"
-                            android:text="4.9"
-                            android:textAlignment="viewStart"
+                            android:text="0"
                             android:textColor="#373b54"
-                            android:textSize="15sp"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -173,8 +175,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="0.333"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="0.3"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -190,10 +192,9 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:paddingStart="8dp"
-                            android:text="20"
-                            android:textAlignment="viewStart"
+                            android:text="0"
                             android:textColor="#373b54"
-                            android:textSize="15sp"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -202,8 +203,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="0.333"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="0.3"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -219,9 +220,9 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:paddingStart="8dp"
-                            android:text="70 calories"
+                            android:text="0 calories"
                             android:textColor="#373b54"
-                            android:textSize="15sp"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -266,7 +267,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="28dp"
-                            android:text="$19.50"
+                            android:text="$0"
                             android:textColor="#000000"
                             android:textSize="23sp"
                             android:textStyle="bold"

@@ -31,7 +31,7 @@ private ManagementCart managementCart;
     }
 
     private void getBundle() {
-        object = (FoodDomain) getIntent().getSerializableExtra("object");
+        object = (FoodDomain)getIntent().getSerializableExtra("object");
         int drawbleResourceId = this.getResources().getIdentifier(object.getPic(), "drawable",this.getPackageName());
         Glide.with(this).
                 load(drawbleResourceId).
@@ -41,9 +41,9 @@ private ManagementCart managementCart;
         feeTxt.setText("$" + object.getFee());
         descriptionTxt.setText(object.getDescription());
         numberOrderTxt.setText(String.valueOf(numberOrder));
-        caloTxt.setText(object.getCalories() + "Calories");
+        caloTxt.setText(object.getCalories() + " Calories");
         /*starTxt.setText(object.getStar() + "");*/
-        timeTxt.setText(object.getTime() + "minutes");
+        timeTxt.setText(object.getTime() + " Minutes");
         totalPriceTxt.setText("$" + numberOrder * object.getFee());
 
         plusBtn.setOnClickListener(new View.OnClickListener() {

@@ -5,6 +5,8 @@ public class CategoryDomain {
     private String pic;
 
     public CategoryDomain(String title, String pic) {
+        this.title = title;
+        this.pic = pic;
     }
 
     public String getTitle() {

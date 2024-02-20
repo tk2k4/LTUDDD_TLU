@@ -21,7 +21,7 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerViewList;
     private ManagementCart managementCart;
-    private TextView totalFeeTxt, taxTxT, deliveryTxT, totalTxT, emptyTxT;
+    private TextView totalFeeTxt, taxTxT, deliveryTxT, totalTxT, emptyTxT, empty2TxT;
     private double tax;
     private ScrollView scrollView2;
 
@@ -34,11 +34,23 @@ public class CartActivity extends AppCompatActivity {
         initView();
         initList();
         bottomNavigation();
+        cartCheckout();
+
+    }
+
+    private void cartCheckout() {
+        TextView emptyTxT = findViewById(R.id.emptyTxT);
+        emptyTxT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CartActivity.this, CartCheckoutMainActivity.class));
+            }
+        });
     }
 
     private void bottomNavigation() {
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
-        FloatingActionButton cartBtn = findViewById(R.id.cartBtn);
+        LinearLayout cartBtn = findViewById(R.id.cartBtn);
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,12 +76,13 @@ public class CartActivity extends AppCompatActivity {
         });
 
         recyclerViewList.setAdapter(adapter);
+        calculateCard();
         if(managementCart.getListCart().isEmpty()) {
-            emptyTxT.setVisibility(View.VISIBLE);
+            empty2TxT.setVisibility(View.VISIBLE);
             scrollView2.setVisibility(View.GONE);
         }
         else {
-            emptyTxT.setVisibility(View.GONE);
+            empty2TxT.setVisibility(View.GONE);
             scrollView2.setVisibility(View.VISIBLE);
         }
     }
@@ -79,13 +92,14 @@ public class CartActivity extends AppCompatActivity {
         double delivery = 10;
 
         tax = Math.round((managementCart.getTotalFee() * percentTax) * 100.0) / 100.0;
-        double total = Math.round((managementCart.getTotalFee() + tax + delivery) * 100.0) / 100;
+        double total = Math.round((managementCart.getTotalFee() + tax + delivery) * 100.0) / 100.0;
         double itemTotal = Math.round(managementCart.getTotalFee() * 100.0) / 100.0;
 
         totalFeeTxt.setText("$" + itemTotal);
         taxTxT.setText("$" + tax);
         deliveryTxT.setText("$" + delivery);
         totalTxT.setText("$" + total);
+
     }
 
     private void initView() {
@@ -94,6 +108,7 @@ public class CartActivity extends AppCompatActivity {
         deliveryTxT = findViewById(R.id.deliveryTxT);
         totalTxT =findViewById(R.id.totalTxT);
         recyclerViewList = findViewById(R.id.view);
+        empty2TxT = findViewById(R.id.empty2TxT);
         scrollView2 = findViewById(R.id.scrollView2);
         emptyTxT = findViewById(R.id.emptyTxT);
     }

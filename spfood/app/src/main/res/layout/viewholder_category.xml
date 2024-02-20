@@ -9,8 +9,20 @@
     android:background="@drawable/background_category"
     android:elevation="3dp">
 
+    <TextView
+        android:id="@+id/categoryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="title"
+        android:textColor="#6e6e70"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/categoryPic"
+        app:layout_constraintStart_toStartOf="@+id/categoryPic"
+        app:layout_constraintTop_toBottomOf="@+id/categoryPic" />
+
     <ImageView
-        android:id="@+id/categotyPic"
+        android:id="@+id/categoryPic"
         android:layout_width="35dp"
         android:layout_height="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,15 +32,4 @@
         app:layout_constraintVertical_bias="0.386"
         app:srcCompat="@drawable/cat_1" />
 
-    <TextView
-        android:id="@+id/categoryName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textColor="#6e6e70"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/categotyPic"
-        app:layout_constraintStart_toStartOf="@+id/categotyPic"
-        app:layout_constraintTop_toBottomOf="@+id/categotyPic" />
 </androidx.constraintlayout.widget.ConstraintLayout>
